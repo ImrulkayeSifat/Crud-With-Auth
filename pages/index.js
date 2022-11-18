@@ -77,15 +77,9 @@ function User({
   deleteId,
 }) {
   return (
-    <main className="container mx-auto text-center py-20">
-      <h3 className="text-4xl font-bold">Authorize User Homepage</h3>
-
+    <main className="container mx-auto text-center py-5">
       <div className="details">
-        <h5>{session.user.name}</h5>
-        <h5>{session.user.email}</h5>
-      </div>
-
-      <div className="flex justify-center">
+        <h5><b><u>User Name :</u></b>{' '}{session.user.name}{' '}<b><u>Email:</u></b> {session.user.email}</h5>
         <button
           onClick={() => signOut()}
           className="mt-5 px-10 py-1 rounded-sm  bg-gray-50"
@@ -94,11 +88,7 @@ function User({
         </button>
       </div>
 
-      <div className="py-5">
-        <h1 className="text-xl md:text-5xl text-center font-bold py-10">
-          Employee Management
-        </h1>
-
+      <div className="py-0">
         <div className="container mx-auto flex justify-between py-5 border-b">
           <div className="left flex gap-3">
             <button
@@ -116,11 +106,20 @@ function User({
 
 
         {visible ? <Form></Form> : <></>}
+      </div>
 
-        <div className="container mr-9">
-          <Table></Table>
+      <div className='max-w-6xl mx-auto my-3'>
+        <div className='flex flex-col'>
+          <div className='overflow-x-auto shadow-md sm:rounded-lg'>
+            <div className='inline-block min-w-full align-middle'>
+              <div className='overflow-hidden'>
+                <Table></Table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      
     </main>
   )
 }

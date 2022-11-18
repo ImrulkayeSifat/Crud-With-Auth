@@ -14,30 +14,30 @@ export default function Table() {
   if (isError) return <div>Got Error {error}</div>
 
   return (
-    <table className="min-w-full table-auto">
-      <thead>
-        <tr className="bg-gray-800">
-          <th className="px-16 py-2">
-            <span className="text-gray-200">Name</span>
+    <table className="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+      <thead className='bg-gray-100 dark:bg-gray-700'>
+        <tr>
+          <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Name
           </th>
-          <th className="px-16 py-2">
-            <span className="text-gray-200">Email</span>
+          <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Email
           </th>
-          <th className="px-16 py-2">
-            <span className="text-gray-200">Salary</span>
+          <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Salary
           </th>
-          <th className="px-16 py-2">
-            <span className="text-gray-200">Birthday</span>
+          <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Birthday
           </th>
-          <th className="px-16 py-2">
-            <span className="text-gray-200">Status</span>
+          <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Status
           </th>
-          <th className="px-16 py-2">
-            <span className="text-gray-200">Actions</span>
+          <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Actions
           </th>
         </tr>
       </thead>
-      <tbody className="bg-gray-200">
+      <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
         {data.map((obj, i) => (
           <Tr {...obj} key={i} />
         ))}
@@ -64,8 +64,8 @@ function Tr({ _id, name, avatar, email, salary, date, status }) {
   }
 
   return (
-    <tr className="bg-gray-50 text-center">
-      <td className="px-16 py-2 flex flex-row items-center">
+    <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+      <td className="p-4 w-4">
         <img
           src={avatar || '#'}
           alt=""
@@ -75,16 +75,16 @@ function Tr({ _id, name, avatar, email, salary, date, status }) {
           {name || 'Unknown'}
         </span>
       </td>
-      <td className="px-16 py-2">
+      <td className="p-4 w-4">
         <span>{email || 'Unknown'}</span>
       </td>
-      <td className="px-16 py-2">
+      <td className="p-4 w-4">
         <span>{salary || 'Unknown'}</span>
       </td>
-      <td className="px-16 py-2">
+      <td className="p-4 w-4">
         <span>{date || 'Unknown'}</span>
       </td>
-      <td className="px-16 py-2">
+      <td className="p-4 w-4">
         <button className="cursor">
           <span
             className={`${
@@ -95,7 +95,7 @@ function Tr({ _id, name, avatar, email, salary, date, status }) {
           </span>
         </button>
       </td>
-      <td className="px-16 py-2 flex justify-around gap-5">
+      <td className="p-4 w-4">
         <button className="cursor" onClick={onUpdate}>
           <BiEdit size={25} color={'rgb(34,197,94)'}></BiEdit>
         </button>
